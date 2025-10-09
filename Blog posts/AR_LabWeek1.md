@@ -1,4 +1,4 @@
-#AR Project- Lab Week 1
+# AR Project- Lab Week 1
 
 **On the computer - Lyubomir**
 **Writting the post - Catarina**
@@ -23,7 +23,7 @@ some default instances that came with the template. When running again, we ran i
 was fixed by rearranging the camara position.
 
 
-###References:
+### References:
 
 *Unity tutorial*
 https://learn.unity.com/tutorial/placing-an-object-on-a-plane-in-ar
