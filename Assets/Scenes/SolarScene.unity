@@ -635,6 +635,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placedPrefab: {fileID: 6551635036232115141, guid: b6af3409a3de0664fac2ac74e5b3bd60,
     type: 3}
+  mercuryPrefab: {fileID: 1237863133182736867, guid: a2f73576faefc2049a19f545f068f38b,
+    type: 3}
 --- !u!114 &1669702502
 MonoBehaviour:
   m_ObjectHideFlags: 0

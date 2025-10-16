@@ -9,6 +9,7 @@ public class TapToPlaceSingle : MonoBehaviour
 {
     [Header("Prefab to place")]
     public GameObject placedPrefab;
+    public GameObject mercuryPrefab;
 
     ARRaycastManager raycastMgr;
     ARPlaneManager planeMgr;
@@ -17,6 +18,7 @@ public class TapToPlaceSingle : MonoBehaviour
     float startPosition = 0.5f;
 
     GameObject placedObject;
+    GameObject mercuryObject;
     static readonly List<ARRaycastHit> hits = new();
 
     void Awake()
@@ -43,6 +45,9 @@ public class TapToPlaceSingle : MonoBehaviour
         var pose = hit.pose;
         var adjustedPosition = pose.position + pose.up*startPosition;
 
+        var mercuryPose = hit.pose;
+        var adjustedPosition2 = pose.position;
+
         if (placedObject == null)
         {
             Transform parent = null;
@@ -56,12 +61,24 @@ public class TapToPlaceSingle : MonoBehaviour
             placedObject = parent != null
                 ? Instantiate(placedPrefab, parent)
                 : Instantiate(placedPrefab, adjustedPosition, pose.rotation);
+                    Instantiate(mercuryPrefab, adjustedPosition2, pose.rotation);
+                    SetDistance(mercuryObject, 3);
+                    Debug.Log("Spawns");
         }
         else
         {
             placedObject.transform.SetPositionAndRotation(adjustedPosition, pose.rotation);
         }
+
     }
+
+  void SetDistance(GameObject other, float dist)
+{
+    Vector3 position = new Vector3(2.0f, 2.0f, 2.0f);
+    Vector3 direction = (placedObject.transform.position - other.transform.position).normalized;
+    other.transform.position = placedObject.transform.position + direction * dist;
+}
+
 
     bool TryGetTap(out Vector2 pos)
     {
