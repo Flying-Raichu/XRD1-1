@@ -2,19 +2,23 @@ using UnityEngine;
 
 public class MercuryOrbit : MonoBehaviour
 {
-    [SerializeField] private GameObject orbitCenter;  
-    [SerializeField] private GameObject mercury;      
-    private float speed = 3.0f;                       
+    [SerializeField] private Transform orbitCenter;
+    [SerializeField] private float degreesPerSecond = 30f;
+
+    Rigidbody rb;
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+        if (rb) rb.isKinematic = true;
+    }
+
+    public void SetOrbitCenter(Transform center) => orbitCenter = center;
 
     void Update()
     {
-        OrbitingAroundSun(mercury); 
-    }
+        if (!orbitCenter) return;
 
-    void OrbitingAroundSun(GameObject objectToOrbit)
-    {
-       
-        Vector3 orbitAxis = Vector3.up;  
-        transform.RotateAround(orbitCenter.transform.position, orbitAxis, speed * Time.deltaTime);
+        transform.RotateAround(orbitCenter.position, orbitCenter.up, degreesPerSecond * Time.deltaTime);
     }
 }

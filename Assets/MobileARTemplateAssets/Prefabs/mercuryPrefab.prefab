@@ -121,6 +121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ab718dad70e7f241ad28c1f4968ca83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orbitCenter: {fileID: 6551635036232115141, guid: b6af3409a3de0664fac2ac74e5b3bd60,
+  orbitCenter: {fileID: 3628014761100841121, guid: b6af3409a3de0664fac2ac74e5b3bd60,
     type: 3}
-  mercury: {fileID: 1237863133182736867}
+  degreesPerSecond: 30

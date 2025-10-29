@@ -1,24 +1,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
-using UnityEngine.XR.ARSubsystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
+using UnityEngine.XR.ARSubsystems;
 
 public class TapToPlaceSingle : MonoBehaviour
 {
     [Header("Prefab to place")]
-    public GameObject placedPrefab;
-    public GameObject mercuryPrefab;
+    public GameObject placedPrefab;    
+    public GameObject mercuryPrefab;   
+
+    [Header("Placement")]
+    [Tooltip("Sun vertical offset above the detected plane (meters).")]
+    public float startPosition = 0.5f; 
+
+    [Tooltip("Initial Mercury orbit radius from the Sun (meters).")]
+    public float mercuryStartRadius = 0.5f;
 
     ARRaycastManager raycastMgr;
     ARPlaneManager planeMgr;
     ARAnchorManager anchorMgr;
 
-    float startPosition = 0.5f;
+    GameObject placedObject;   
+    GameObject mercuryObject; 
+    Transform parentAnchor;  
 
-    GameObject placedObject;
-    GameObject mercuryObject;
     static readonly List<ARRaycastHit> hits = new();
 
     void Awake()
@@ -29,26 +36,21 @@ public class TapToPlaceSingle : MonoBehaviour
         EnhancedTouchSupport.Enable();
     }
 
-    void OnDestroy()
-    {
-        EnhancedTouchSupport.Disable();
-    }
+    void OnDestroy() => EnhancedTouchSupport.Disable();
 
     void Update()
     {
         if (!TryGetTap(out var screenPos)) return;
-
-        if (!raycastMgr.Raycast(screenPos, hits, TrackableType.PlaneWithinPolygon))
-            return;
+        if (!raycastMgr.Raycast(screenPos, hits, TrackableType.PlaneWithinPolygon)) return;
 
         var hit = hits[0];
         var pose = hit.pose;
-        var adjustedPosition = pose.position + pose.up*startPosition;
 
-        var mercuryPose = hit.pose;
-        var adjustedPosition2 = pose.position;
+        var sunPos = pose.position + pose.up * startPosition;
+        var sunRot = pose.rotation;
 
-        if (placedObject == null)
+ 
+        if (parentAnchor == null)
         {
             Transform parent = null;
             if (anchorMgr != null && planeMgr != null)
@@ -57,28 +59,48 @@ public class TapToPlaceSingle : MonoBehaviour
                 var anchor = plane ? anchorMgr.AttachAnchor(plane, pose) : null;
                 if (anchor != null) parent = anchor.transform;
             }
+            parentAnchor = parent; 
+        }
 
-            placedObject = parent != null
-                ? Instantiate(placedPrefab, parent)
-                : Instantiate(placedPrefab, adjustedPosition, pose.rotation);
-                    Instantiate(mercuryPrefab, adjustedPosition2, pose.rotation);
-                    SetDistance(mercuryObject, 3);
-                    Debug.Log("Spawns");
+        if (placedObject == null)
+        {
+            placedObject = Instantiate(placedPrefab, sunPos, sunRot, parentAnchor);
+
+            var offset = pose.right * mercuryStartRadius;
+            var mercuryPos = sunPos + offset;
+            var mercuryRot = Quaternion.LookRotation((sunPos - mercuryPos).normalized, pose.up);
+
+            mercuryObject = Instantiate(mercuryPrefab, mercuryPos, mercuryRot, parentAnchor);
+
+            if (mercuryObject.TryGetComponent<MercuryOrbit>(out var orbit)) orbit.SetOrbitCenter(placedObject.transform);
+
+            SetDistance(mercuryObject, mercuryStartRadius);
+
+            Debug.Log("Spawned Sun + Mercury under parent " + (parentAnchor ? parentAnchor.name : "<none>"));
         }
         else
         {
-            placedObject.transform.SetPositionAndRotation(adjustedPosition, pose.rotation);
-        }
+            placedObject.transform.SetPositionAndRotation(sunPos, sunRot);
 
+            if (mercuryObject != null)
+            {
+                var offset = pose.right * mercuryStartRadius;
+                var mercuryPos = sunPos + offset;
+                var mercuryRot = Quaternion.LookRotation((sunPos - mercuryPos).normalized, pose.up);
+
+                mercuryObject.transform.SetPositionAndRotation(mercuryPos, mercuryRot);
+            }
+        }
     }
 
-  void SetDistance(GameObject other, float dist)
-{
-    Vector3 position = new Vector3(2.0f, 2.0f, 2.0f);
-    Vector3 direction = (placedObject.transform.position - other.transform.position).normalized;
-    other.transform.position = placedObject.transform.position + direction * dist;
-}
+    void SetDistance(GameObject other, float dist)
+    {
+        if (!other || !placedObject) return;
 
+        var dir = (other.transform.position - placedObject.transform.position);
+        if (dir.sqrMagnitude < 1e-6f) dir = placedObject.transform.right;
+        other.transform.position = placedObject.transform.position + dir.normalized * Mathf.Max(0f, dist);
+    }
 
     bool TryGetTap(out Vector2 pos)
     {
