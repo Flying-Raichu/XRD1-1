@@ -1,14 +1,14 @@
 # Lyubo – Texture Work
 Today, Lyubo focused on creating and refining textures for the planets and the Sun in our solar system scene.
 
-Because our project aims for a stylized but readable look — and we’re working with limited time — we decided to use pixelated textures instead of high-resolution photorealistic ones. This approach not only fits the visual style we’re going for, but also makes the creation process much faster and easier to iterate on.
+Because our project aims for a stylized but readable look - and we’re working with limited time - we decided to use pixelated textures instead of high-resolution photorealistic ones. This approach not only fits the visual style we’re going for, but also makes the creation process much faster and easier to iterate on.
 
 ## Process
 Each planet was given a 64×64 texture map, created with simple color patterns and procedural noise to suggest surface detail (like craters on Mercury, clouds on Venus, and gas bands on Jupiter). The smaller texture size keeps the assets lightweight and gives them a clean, consistent aesthetic.
 
-After generating each texture, we imported them into Unity and applied them to basic sphere meshes. We set the Filter Mode to Point (no filter) so the pixels remain sharp rather than blurred, keeping the deliberate pixel-art appearance. The Wrap Mode was adjusted as needed — either Repeat for seamless textures (like Uranus or Venus), or Clamp for planets like Neptune where repeating would create unwanted seams.
+After generating each texture, we imported them into Unity and applied them to basic sphere meshes. We set the Filter Mode to Point (no filter) so the pixels remain sharp rather than blurred, keeping the deliberate pixel-art appearance. The Wrap Mode was adjusted as needed - either Repeat for seamless textures (like Uranus or Venus), or Clamp for planets like Neptune where repeating would create unwanted seams.
 
-We also created normal maps for each texture to give the planets subtle lighting detail. This adds a small amount of depth to the surfaces without increasing model complexity — for example, craters or cloud bands catch light realistically when the scene’s light source moves.
+We also created normal maps for each texture to give the planets subtle lighting detail. This adds a small amount of depth to the surfaces without increasing model complexity - for example, craters or cloud bands catch light realistically when the scene’s light source moves.
 
 ## Results
 By the end of the session, all major celestial bodies have functional textures with consistent styling and proper material setup in Unity. The combination of pixel textures and normal maps gives each planet its own character while maintaining a cohesive low-resolution look across the solar system.
