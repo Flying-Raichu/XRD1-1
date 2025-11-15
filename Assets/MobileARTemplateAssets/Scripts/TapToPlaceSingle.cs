@@ -1,30 +1,53 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARSubsystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
-using UnityEngine.XR.ARSubsystems;
 
 public class TapToPlaceSingle : MonoBehaviour
 {
-    [Header("Prefab to place")]
-    public GameObject placedPrefab;    
-    public GameObject mercuryPrefab;   
+    [Header("Sun")]
+    [Tooltip("Prefab for the Sun object.")]
+    public GameObject placedPrefab;
 
-    [Header("Placement")]
     [Tooltip("Sun vertical offset above the detected plane (meters).")]
-    public float startPosition = 0.5f; 
+    public float startPosition = 0.5f;
 
-    [Tooltip("Initial Mercury orbit radius from the Sun (meters).")]
-    public float mercuryStartRadius = 0.5f;
+    [System.Serializable]
+    public class PlanetSpec
+    {
+        public string name;
+        public GameObject prefab;
+
+        [Tooltip("Orbit radius from the Sun (meters).")]
+        public float orbitRadius = 0.5f;
+
+        [Tooltip("Orbit speed (degrees per second).")]
+        public float degreesPerSecond = 30f;
+
+        [Tooltip("Starting angle around the Sun (degrees).")]
+        public float startingAngleDeg = 0f;
+    }
+
+    [Header("Planets")]
+    public List<PlanetSpec> planets = new();
+
+    [Header("Orbit visuals")]
+    public Material orbitMaterial;
+    public int orbitSegments = 90;
+    public float orbitLineWidth = 0.003f;
 
     ARRaycastManager raycastMgr;
     ARPlaneManager planeMgr;
     ARAnchorManager anchorMgr;
 
-    GameObject placedObject;   
-    GameObject mercuryObject; 
-    Transform parentAnchor;  
+
+    GameObject placedObject;       
+    Transform parentAnchor;         
+
+    readonly List<GameObject> spawnedPlanets = new();
+    readonly List<OrbitRing> spawnedRings = new();
 
     static readonly List<ARRaycastHit> hits = new();
 
@@ -33,14 +56,19 @@ public class TapToPlaceSingle : MonoBehaviour
         raycastMgr = GetComponent<ARRaycastManager>();
         planeMgr = GetComponent<ARPlaneManager>();
         anchorMgr = GetComponent<ARAnchorManager>();
+
         EnhancedTouchSupport.Enable();
     }
 
-    void OnDestroy() => EnhancedTouchSupport.Disable();
+    void OnDestroy()
+    {
+        EnhancedTouchSupport.Disable();
+    }
 
     void Update()
     {
         if (!TryGetTap(out var screenPos)) return;
+
         if (!raycastMgr.Raycast(screenPos, hits, TrackableType.PlaneWithinPolygon)) return;
 
         var hit = hits[0];
@@ -49,71 +77,132 @@ public class TapToPlaceSingle : MonoBehaviour
         var sunPos = pose.position + pose.up * startPosition;
         var sunRot = pose.rotation;
 
- 
         if (parentAnchor == null)
         {
             Transform parent = null;
+
             if (anchorMgr != null && planeMgr != null)
             {
                 var plane = planeMgr.GetPlane(hit.trackableId);
                 var anchor = plane ? anchorMgr.AttachAnchor(plane, pose) : null;
                 if (anchor != null) parent = anchor.transform;
             }
-            parentAnchor = parent; 
+
+            parentAnchor = parent;
         }
 
         if (placedObject == null)
         {
             placedObject = Instantiate(placedPrefab, sunPos, sunRot, parentAnchor);
 
-            var offset = pose.right * mercuryStartRadius;
-            var mercuryPos = sunPos + offset;
-            var mercuryRot = Quaternion.LookRotation((sunPos - mercuryPos).normalized, pose.up);
+            SpawnPlanetsAndRings(pose, sunPos);
 
-            mercuryObject = Instantiate(mercuryPrefab, mercuryPos, mercuryRot, parentAnchor);
-
-            if (mercuryObject.TryGetComponent<MercuryOrbit>(out var orbit)) orbit.SetOrbitCenter(placedObject.transform);
-
-            SetDistance(mercuryObject, mercuryStartRadius);
-
-            Debug.Log("Spawned Sun + Mercury under parent " + (parentAnchor ? parentAnchor.name : "<none>"));
+            Debug.Log("Spawned Sun + planets under parent " +
+                      (parentAnchor ? parentAnchor.name : "<none>"));
         }
         else
         {
-            placedObject.transform.SetPositionAndRotation(sunPos, sunRot);
 
-            if (mercuryObject != null)
+            Vector3 delta = sunPos - placedObject.transform.position;
+
+            if (parentAnchor != null)
             {
-                var offset = pose.right * mercuryStartRadius;
-                var mercuryPos = sunPos + offset;
-                var mercuryRot = Quaternion.LookRotation((sunPos - mercuryPos).normalized, pose.up);
+                parentAnchor.position += delta;
+                parentAnchor.rotation = sunRot;
+            }
+            else
+            {
+                placedObject.transform.position += delta;
+                placedObject.transform.rotation = sunRot;
 
-                mercuryObject.transform.SetPositionAndRotation(mercuryPos, mercuryRot);
+                foreach (var p in spawnedPlanets)
+                {
+                    if (p != null)
+                        p.transform.position += delta;
+                }
+            }
+
+
+            foreach (var ring in spawnedRings)
+            {
+                if (ring != null)
+                    ring.UpdateRing(sunPos);
             }
         }
     }
 
-    void SetDistance(GameObject other, float dist)
+    void SpawnPlanetsAndRings(Pose planePose, Vector3 sunPos)
     {
-        if (!other || !placedObject) return;
+        Vector3 orbitAxis = planePose.up;
 
-        var dir = (other.transform.position - placedObject.transform.position);
-        if (dir.sqrMagnitude < 1e-6f) dir = placedObject.transform.right;
-        other.transform.position = placedObject.transform.position + dir.normalized * Mathf.Max(0f, dist);
+        spawnedPlanets.Clear();
+        spawnedRings.Clear();
+
+        foreach (var spec in planets)
+        {
+            if (spec.prefab == null)
+                continue;
+
+            if (orbitMaterial != null && spec.orbitRadius > 0f)
+            {
+                var ringObj = new GameObject($"{spec.name} Orbit");
+
+                ringObj.transform.SetParent(
+                    parentAnchor != null ? parentAnchor : placedObject.transform.parent,
+                    false);
+
+                var ring = ringObj.AddComponent<OrbitRing>();
+                ring.Build(
+                    spec.orbitRadius,
+                    orbitSegments,
+                    orbitLineWidth,
+                    sunPos,        
+                    orbitAxis,     
+                    orbitMaterial);
+
+                spawnedRings.Add(ring);
+            }
+
+            float angleRad = spec.startingAngleDeg * Mathf.Deg2Rad;
+
+            Vector3 dirInPlane =
+                Mathf.Cos(angleRad) * planePose.right +
+                Mathf.Sin(angleRad) * planePose.forward;
+
+            dirInPlane.Normalize();
+
+            Vector3 planetPos = sunPos + dirInPlane * spec.orbitRadius;
+
+            Quaternion planetRot =
+                Quaternion.LookRotation((sunPos - planetPos).normalized, planePose.up);
+
+            var planetObj = Instantiate(spec.prefab, planetPos, planetRot, parentAnchor);
+
+            if (planetObj.TryGetComponent<OrbitingBody>(out var orbit))
+            {
+                orbit.Init(placedObject.transform, spec.degreesPerSecond, orbitAxis);
+            }
+
+            spawnedPlanets.Add(planetObj);
+        }
     }
 
     bool TryGetTap(out Vector2 pos)
     {
         pos = default;
+
         var ts = Touchscreen.current;
         if (ts == null) return false;
 
         var t = ts.primaryTouch;
-        if (t.press.wasPressedThisFrame || t.phase.ReadValue() == UnityEngine.InputSystem.TouchPhase.Began)
+
+        if (t.press.wasPressedThisFrame ||
+            t.phase.ReadValue() == UnityEngine.InputSystem.TouchPhase.Began)
         {
             pos = t.position.ReadValue();
             return true;
         }
+
         return false;
     }
 }
