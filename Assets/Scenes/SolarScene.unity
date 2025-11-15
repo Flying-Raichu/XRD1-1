@@ -635,6 +635,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placedPrefab: {fileID: 6551635036232115141, guid: b6af3409a3de0664fac2ac74e5b3bd60,
     type: 3}
+  startPosition: 0.5
+  orbitMaterial: {fileID: 2100000, guid: 7c5a05470d6f8404ca008602e37b82f5, type: 2}
+  orbitSegments: 90
+  orbitLineWidth: 0.003
+  planets:
+  - name: Mercury
+    prefab: {fileID: 1237863133182736867, guid: 827e4548f58f42e418fb4351da1fae10,
+      type: 3}
+    orbitRadius: 0.2
+    degreesPerSecond: 30
+    startingAngleDeg: 0
+  - name: Venus
+    prefab: {fileID: 1237863133182736867, guid: b4bcb9763efc26048bf4ecedc6b001c7,
+      type: 3}
+    orbitRadius: 0.5
+    degreesPerSecond: 24
+    startingAngleDeg: 45
+  - name: Earth
+    prefab: {fileID: 1237863133182736867, guid: 622a03ee104c1f241bdd478dcfcaa1e7,
+      type: 3}
+    orbitRadius: 0.8
+    degreesPerSecond: 20
+    startingAngleDeg: 90
+  - name: Mars
+    prefab: {fileID: 1237863133182736867, guid: 1e222732706454945a00023f34e71791,
+      type: 3}
+    orbitRadius: 1.1
+    degreesPerSecond: 17
+    startingAngleDeg: 135
+  - name: Jupiter
+    prefab: {fileID: 1237863133182736867, guid: 1c1a45fe507098947bb27985e0cdda23,
+      type: 3}
+    orbitRadius: 1.5
+    degreesPerSecond: 12
+    startingAngleDeg: 180
+  - name: Saturn
+    prefab: {fileID: 1237863133182736867, guid: 2e1606f878b130042aaac49eaa143fb3,
+      type: 3}
+    orbitRadius: 2
+    degreesPerSecond: 10
+    startingAngleDeg: 225
+  - name: Uranus
+    prefab: {fileID: 1237863133182736867, guid: 93352bcd3d756914099d81b59dc662b8,
+      type: 3}
+    orbitRadius: 2.7
+    degreesPerSecond: 8
+    startingAngleDeg: 270
+  - name: Neptune
+    prefab: {fileID: 1237863133182736867, guid: 6074008f1b09bc04e90aca9b48f3cee9,
+      type: 3}
+    orbitRadius: 3
+    degreesPerSecond: 7
+    startingAngleDeg: 315
 --- !u!114 &1669702502
 MonoBehaviour:
   m_ObjectHideFlags: 0
