@@ -636,9 +636,6 @@ MonoBehaviour:
   placedPrefab: {fileID: 6551635036232115141, guid: b6af3409a3de0664fac2ac74e5b3bd60,
     type: 3}
   startPosition: 0.5
-  orbitMaterial: {fileID: 2100000, guid: 7c5a05470d6f8404ca008602e37b82f5, type: 2}
-  orbitSegments: 90
-  orbitLineWidth: 0.003
   planets:
   - name: Mercury
     prefab: {fileID: 1237863133182736867, guid: 827e4548f58f42e418fb4351da1fae10,
@@ -688,6 +685,9 @@ MonoBehaviour:
     orbitRadius: 3
     degreesPerSecond: 7
     startingAngleDeg: 315
+  orbitMaterial: {fileID: 2100000, guid: 7c5a05470d6f8404ca008602e37b82f5, type: 2}
+  orbitSegments: 90
+  orbitLineWidth: 0.003
 --- !u!114 &1669702502
 MonoBehaviour:
   m_ObjectHideFlags: 0
