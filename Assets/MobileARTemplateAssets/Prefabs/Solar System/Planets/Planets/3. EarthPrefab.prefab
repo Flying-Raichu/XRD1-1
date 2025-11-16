@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 8489104735594919377}
   - component: {fileID: 7012206258445110741}
   - component: {fileID: 5113170321149259438}
+  - component: {fileID: 9057852103689236449}
   m_Layer: 0
-  m_Name: VenusPrefab
+  m_Name: 3. EarthPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.28572, y: 0, z: -4.28571}
-  m_LocalScale: {x: 0.035, y: 0.035, z: 0.035}
+  m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -66,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2f2ea5cf45d37f944bfee23dc6b737d9, type: 2}
+  - {fileID: 2100000, guid: dae19a14e4bf83a4aba3ed28a2079287, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -121,3 +122,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314a1791b32af154d9a64be97f19170b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9057852103689236449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237863133182736867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 000e8f2039c4d9045b99c4ba24f13918, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  degreesPerSecond: 15
+  axialTiltDegrees: 23.5
