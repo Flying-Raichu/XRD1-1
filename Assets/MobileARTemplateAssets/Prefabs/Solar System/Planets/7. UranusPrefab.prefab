@@ -13,9 +13,11 @@ GameObject:
   - component: {fileID: 8489104735594919377}
   - component: {fileID: 7012206258445110741}
   - component: {fileID: 5113170321149259438}
-  - component: {fileID: 7401157991624507117}
-  m_Layer: 0
-  m_Name: 5. JupiterPrefab
+  - component: {fileID: -7444683127176521251}
+  - component: {fileID: -2287173467636020692}
+  - component: {fileID: -546231359658338303}
+  m_Layer: 3
+  m_Name: 7. UranusPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.28572, y: 0, z: -4.28571}
-  m_LocalScale: {x: 0.11, y: 0.11, z: 0.11}
+  m_LocalScale: {x: 0.065, y: 0.065, z: 0.065}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -67,7 +69,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6c9a6ba0ac206e448ae601c716917b87, type: 2}
+  - {fileID: 2100000, guid: 825e9dc93606e7244b6233ad8fc5a38b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -108,7 +110,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.33
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5113170321149259438
 MonoBehaviour:
@@ -122,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314a1791b32af154d9a64be97f19170b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7401157991624507117
+--- !u!114 &-7444683127176521251
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,5 +137,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  degreesPerSecond: 30
-  axialTiltDegrees: 3
+  degreesPerSecond: -20
+  axialTiltDegrees: 98
+--- !u!114 &-2287173467636020692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237863133182736867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c16a5c289507a024aaedcb97fa45b015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  segments: 64
+  innerRadius: 0.6
+  thickness: 0.3
+  ringMat: {fileID: 2100000, guid: ec8709d375f3a0c4bb36037295499862, type: 2}
+--- !u!114 &-546231359658338303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237863133182736867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 347ee1bc27d7f0846a1337f3fbcf0459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emissionStrength: 3

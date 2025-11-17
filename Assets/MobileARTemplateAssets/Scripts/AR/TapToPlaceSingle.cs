@@ -38,12 +38,15 @@ public class TapToPlaceSingle : MonoBehaviour
     public int orbitSegments = 90;
     public float orbitLineWidth = 0.003f;
 
+    [Header("Interaction")]
+    [Tooltip("Handles tapping planets so placement taps don't override selection.")]
+    public PlanetSelectionManager selectionManager;
+
     ARRaycastManager raycastMgr;
     ARPlaneManager planeMgr;
     ARAnchorManager anchorMgr;
 
-
-    GameObject placedObject;       
+    GameObject placedObject;      
     Transform parentAnchor;         
 
     readonly List<GameObject> spawnedPlanets = new();
@@ -58,6 +61,9 @@ public class TapToPlaceSingle : MonoBehaviour
         anchorMgr = GetComponent<ARAnchorManager>();
 
         EnhancedTouchSupport.Enable();
+
+        if (selectionManager == null)
+            selectionManager = FindFirstObjectByType<PlanetSelectionManager>();
     }
 
     void OnDestroy()
@@ -68,6 +74,9 @@ public class TapToPlaceSingle : MonoBehaviour
     void Update()
     {
         if (!TryGetTap(out var screenPos)) return;
+
+        if (selectionManager != null && selectionManager.TrySelectPlanet(screenPos))
+            return;
 
         if (!raycastMgr.Raycast(screenPos, hits, TrackableType.PlaneWithinPolygon)) return;
 
@@ -102,7 +111,6 @@ public class TapToPlaceSingle : MonoBehaviour
         }
         else
         {
-
             Vector3 delta = sunPos - placedObject.transform.position;
 
             if (parentAnchor != null)
@@ -121,7 +129,6 @@ public class TapToPlaceSingle : MonoBehaviour
                         p.transform.position += delta;
                 }
             }
-
 
             foreach (var ring in spawnedRings)
             {
@@ -156,8 +163,8 @@ public class TapToPlaceSingle : MonoBehaviour
                     spec.orbitRadius,
                     orbitSegments,
                     orbitLineWidth,
-                    sunPos,        
-                    orbitAxis,     
+                    sunPos,
+                    orbitAxis,
                     orbitMaterial);
 
                 spawnedRings.Add(ring);
@@ -184,6 +191,11 @@ public class TapToPlaceSingle : MonoBehaviour
             }
 
             spawnedPlanets.Add(planetObj);
+        }
+
+        if (selectionManager != null)
+        {
+            selectionManager.RefreshPlanets();
         }
     }
 
