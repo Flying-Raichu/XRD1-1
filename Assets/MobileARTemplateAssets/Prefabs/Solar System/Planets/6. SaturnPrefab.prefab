@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -5679691890999989639}
   - component: {fileID: 5647914972926009815}
   - component: {fileID: 7108501730231784273}
+  - component: {fileID: 4803108321431160963}
   m_Layer: 3
   m_Name: 6. SaturnPrefab
   m_TagString: Untagged
@@ -170,6 +171,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emissionStrength: 3
   labelRoot: {fileID: 4607391455260691669}
+--- !u!114 &4803108321431160963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237863133182736867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ecbfeead81e7f42ac312721a244d87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: Saturn
+  description: "Saturn is a gas giant famous for its beautiful, complex ring system
+    made of ice and rock particles. Although huge, Saturn is surprisingly light for
+    its size - it\u2019s the only planet that would float in water if you had a giant
+    enough bathtub. Its atmosphere features fast winds and storms that wrap around
+    the planet. Saturn also has more than 80 moons, including Titan, which has lakes
+    of liquid methane.\nFun Fact: Saturn\u2019s rings are so thin that, despite being
+    tens of thousands of kilometers wide, they are often less than 1 kilometer thick."
+  icon: {fileID: 0}
 --- !u!1 &3166260626041114838
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,6 +203,7 @@ GameObject:
   - component: {fileID: 6805801585106307343}
   - component: {fileID: 710141593894335945}
   - component: {fileID: 2520610563599397266}
+  - component: {fileID: 7558430106576123417}
   m_Layer: 3
   m_Name: Image
   m_TagString: Untagged
@@ -246,6 +269,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7558430106576123417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3166260626041114838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf21a8309a290734a8be2d3a5cb2ec65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3604015318091599906
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,6 +292,7 @@ GameObject:
   - component: {fileID: 5036425941463072634}
   - component: {fileID: 4046220772491390204}
   - component: {fileID: 3599666375480389652}
+  - component: {fileID: 3142059885076421193}
   m_Layer: 3
   m_Name: Saturn
   m_TagString: Untagged
@@ -384,6 +420,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3142059885076421193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3604015318091599906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf21a8309a290734a8be2d3a5cb2ec65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4607391455260691669
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,6 +443,8 @@ GameObject:
   - component: {fileID: 3882374778179605031}
   - component: {fileID: 4066341709082681985}
   - component: {fileID: 4887128300837906172}
+  - component: {fileID: 7916895531637963774}
+  - component: {fileID: 5185291223494413348}
   m_Layer: 3
   m_Name: LabelRoot
   m_TagString: Untagged
@@ -419,7 +469,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000023841858, y: 1.6418947}
+  m_AnchoredPosition: {x: 0.0000023841858, y: 2.225}
   m_SizeDelta: {x: 30, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4066341709082681985
@@ -457,3 +507,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c3e011c1c8198468ea3c31d3e8b354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7916895531637963774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4607391455260691669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4fe070b48859654da346d5ea8a911df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5185291223494413348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4607391455260691669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5113170321149259438}
   - component: {fileID: 6263116136027139148}
   - component: {fileID: -2228987224830220661}
+  - component: {fileID: -257353113747287230}
   m_Layer: 3
   m_Name: 2. VenusPrefab
   m_TagString: Untagged
@@ -153,6 +154,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emissionStrength: 3
   labelRoot: {fileID: 7027584907966856655}
+--- !u!114 &-257353113747287230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237863133182736867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ecbfeead81e7f42ac312721a244d87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: Venus
+  description: "Venus is often called Earth\u2019s \u201Csister planet\u201D because
+    of its similar size and composition. But despite that similarity, Venus is a
+    hostile world wrapped in thick, toxic clouds of sulfuric acid. Its atmosphere
+    traps heat so efficiently that it becomes the hottest planet in the solar system.
+    Winds in its upper atmosphere whip around the planet faster than a jet stream
+    on steroids.\nFun Fact: Venus spins backwards compared to most planets - meaning
+    the Sun rises in the west and sets in the east!"
+  icon: {fileID: 0}
 --- !u!1 &7027584907966856655
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +186,8 @@ GameObject:
   - component: {fileID: 579499498011107855}
   - component: {fileID: 5211027513913649642}
   - component: {fileID: 8616925831461225668}
+  - component: {fileID: 1937410428628981691}
+  - component: {fileID: 4096214067239767892}
   m_Layer: 3
   m_Name: LabelRoot
   m_TagString: Untagged
@@ -188,7 +212,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000023841858, y: 3.06}
+  m_AnchoredPosition: {x: -0.0000023841858, y: 5.29}
   m_SizeDelta: {x: 30, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5211027513913649642
@@ -226,6 +250,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c3e011c1c8198468ea3c31d3e8b354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1937410428628981691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7027584907966856655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4fe070b48859654da346d5ea8a911df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4096214067239767892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7027584907966856655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &7709694391881167359
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,6 +290,7 @@ GameObject:
   - component: {fileID: 9110733258644110541}
   - component: {fileID: 6631028916945505756}
   - component: {fileID: 5842143517919252392}
+  - component: {fileID: 2006969815399696597}
   m_Layer: 3
   m_Name: Image
   m_TagString: Untagged
@@ -302,6 +356,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2006969815399696597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7709694391881167359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf21a8309a290734a8be2d3a5cb2ec65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8443055756458065582
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +379,7 @@ GameObject:
   - component: {fileID: 7247050586145055209}
   - component: {fileID: 4315954292558027475}
   - component: {fileID: 1967254769522656355}
+  - component: {fileID: 9011731448829631719}
   m_Layer: 3
   m_Name: Venus
   m_TagString: Untagged
@@ -438,3 +505,15 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &9011731448829631719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8443055756458065582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf21a8309a290734a8be2d3a5cb2ec65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

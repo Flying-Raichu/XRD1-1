@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5113170321149259438}
   - component: {fileID: -8615161829426416375}
   - component: {fileID: 553823777715802575}
+  - component: {fileID: 2198330703209085263}
   m_Layer: 3
   m_Name: 8. NeptunePrefab
   m_TagString: Untagged
@@ -153,6 +154,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emissionStrength: 3
   labelRoot: {fileID: 5860792019866723339}
+--- !u!114 &2198330703209085263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237863133182736867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ecbfeead81e7f42ac312721a244d87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: Neptune
+  description: "Neptune is the farthest planet from the Sun and one of the coldest
+    worlds in the solar system. Like Uranus, it\u2019s an ice giant, made mainly
+    of icy water, ammonia, and methane deep below the surface. Despite its distance,
+    Neptune has incredibly fast winds that can reach over 2,000 km/h - the fastest
+    in the solar system. Its deep blue color comes from absorbing red light and reflecting
+    blue.\nFun Fact: Neptune was discovered using math before it was ever seen, after
+    astronomers noticed Uranus wasn't orbiting exactly as expected."
+  icon: {fileID: 0}
 --- !u!1 &4525131452557314297
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +186,7 @@ GameObject:
   - component: {fileID: 1874677883461144802}
   - component: {fileID: 7066848025326389229}
   - component: {fileID: 7850729070171821442}
+  - component: {fileID: 1100403633271849365}
   m_Layer: 3
   m_Name: Image
   m_TagString: Untagged
@@ -229,6 +252,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1100403633271849365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4525131452557314297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf21a8309a290734a8be2d3a5cb2ec65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5860792019866723339
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +275,8 @@ GameObject:
   - component: {fileID: 5232541856963203001}
   - component: {fileID: 8949944387879488881}
   - component: {fileID: 6520912033193949248}
+  - component: {fileID: 3595348617559102518}
+  - component: {fileID: 7338464532357115708}
   m_Layer: 3
   m_Name: LabelRoot
   m_TagString: Untagged
@@ -264,7 +301,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000023841858, y: 2.5996666}
+  m_AnchoredPosition: {x: -0.0000023841858, y: 2.968}
   m_SizeDelta: {x: 30, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8949944387879488881
@@ -302,6 +339,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c3e011c1c8198468ea3c31d3e8b354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3595348617559102518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5860792019866723339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4fe070b48859654da346d5ea8a911df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7338464532357115708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5860792019866723339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &9145047731897742122
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +379,7 @@ GameObject:
   - component: {fileID: 6838402642038598691}
   - component: {fileID: 465178062196580348}
   - component: {fileID: 5409061158410049922}
+  - component: {fileID: 2951882920972060938}
   m_Layer: 3
   m_Name: Neptune
   m_TagString: Untagged
@@ -438,3 +505,15 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2951882920972060938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9145047731897742122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf21a8309a290734a8be2d3a5cb2ec65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

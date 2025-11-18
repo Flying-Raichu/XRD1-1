@@ -4,6 +4,7 @@ using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
+using UnityEngine.EventSystems;   // NEW
 
 public class TapToPlaceSingle : MonoBehaviour
 {
@@ -46,8 +47,8 @@ public class TapToPlaceSingle : MonoBehaviour
     ARPlaneManager planeMgr;
     ARAnchorManager anchorMgr;
 
-    GameObject placedObject;      
-    Transform parentAnchor;         
+    GameObject placedObject;
+    Transform parentAnchor;
 
     readonly List<GameObject> spawnedPlanets = new();
     readonly List<OrbitRing> spawnedRings = new();
@@ -74,6 +75,9 @@ public class TapToPlaceSingle : MonoBehaviour
     void Update()
     {
         if (!TryGetTap(out var screenPos)) return;
+
+        if (IsPointerOverUI(screenPos))
+            return;
 
         if (selectionManager != null && selectionManager.TrySelectPlanet(screenPos))
             return;
@@ -105,6 +109,11 @@ public class TapToPlaceSingle : MonoBehaviour
             placedObject = Instantiate(placedPrefab, sunPos, sunRot, parentAnchor);
 
             SpawnPlanetsAndRings(pose, sunPos);
+
+            if (planeMgr != null)
+            {
+                planeMgr.requestedDetectionMode = PlaneDetectionMode.None;
+            }
 
             Debug.Log("Spawned Sun + planets under parent " +
                       (parentAnchor ? parentAnchor.name : "<none>"));
@@ -216,5 +225,20 @@ public class TapToPlaceSingle : MonoBehaviour
         }
 
         return false;
+    }
+
+    bool IsPointerOverUI(Vector2 screenPos)
+    {
+        if (EventSystem.current == null)
+            return false;
+
+        var eventData = new PointerEventData(EventSystem.current)
+        {
+            position = screenPos
+        };
+
+        var results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
+        return results.Count > 0;
     }
 }
