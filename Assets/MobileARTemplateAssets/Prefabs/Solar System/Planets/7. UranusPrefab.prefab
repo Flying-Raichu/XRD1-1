@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5124615255335250387}
   - component: {fileID: 7074683890259827036}
   - component: {fileID: 7270468108894394823}
+  - component: {fileID: 6703524500254359293}
+  - component: {fileID: 8964520386251819941}
   m_Layer: 3
   m_Name: LabelRoot
   m_TagString: Untagged
@@ -35,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000002861023, y: 2.399692}
+  m_AnchoredPosition: {x: -0.000002861023, y: 3.644}
   m_SizeDelta: {x: 30, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7074683890259827036
@@ -73,6 +75,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c3e011c1c8198468ea3c31d3e8b354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6703524500254359293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396594246367491660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4fe070b48859654da346d5ea8a911df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8964520386251819941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396594246367491660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &1237863133182736867
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,6 +120,7 @@ GameObject:
   - component: {fileID: -7444683127176521251}
   - component: {fileID: -2287173467636020692}
   - component: {fileID: -546231359658338303}
+  - component: {fileID: 3270735489371071292}
   m_Layer: 3
   m_Name: 7. UranusPrefab
   m_TagString: Untagged
@@ -243,6 +275,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emissionStrength: 3
   labelRoot: {fileID: 396594246367491660}
+--- !u!114 &3270735489371071292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237863133182736867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ecbfeead81e7f42ac312721a244d87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: Uranus
+  description: 'Uranus is an ice giant with a pale blue color caused by methane in
+    its atmosphere. What makes Uranus unique is its extreme tilt - it rotates almost
+    on its side, likely the result of a colossal collision billions of years ago.
+    This causes seasons that last over 20 years each. Uranus also has a faint ring
+    system and dozens of moons.
+
+    Fun Fact: Because of its sideways rotation,
+    the poles of Uranus can experience 42 years of continuous daylight, followed
+    by 42 years of darkness!'
+  icon: {fileID: 0}
 --- !u!1 &5546671482903235787
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,6 +309,7 @@ GameObject:
   - component: {fileID: 6242243009800131648}
   - component: {fileID: 5897306682499392779}
   - component: {fileID: 7255028699659648424}
+  - component: {fileID: 5177535761024711636}
   m_Layer: 3
   m_Name: Uranus
   m_TagString: Untagged
@@ -379,6 +435,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5177535761024711636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5546671482903235787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf21a8309a290734a8be2d3a5cb2ec65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7302075118488689710
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,6 +458,7 @@ GameObject:
   - component: {fileID: 1383571746381768300}
   - component: {fileID: 1453866496459315367}
   - component: {fileID: 2310021761975382950}
+  - component: {fileID: 3416279154740304106}
   m_Layer: 3
   m_Name: Image
   m_TagString: Untagged
@@ -455,3 +524,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3416279154740304106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7302075118488689710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf21a8309a290734a8be2d3a5cb2ec65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

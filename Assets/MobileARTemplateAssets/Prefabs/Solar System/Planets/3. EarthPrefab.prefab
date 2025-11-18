@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5113170321149259438}
   - component: {fileID: 9057852103689236449}
   - component: {fileID: 198973065445051899}
+  - component: {fileID: 7199680214876054195}
   m_Layer: 3
   m_Name: 3. EarthPrefab
   m_TagString: Untagged
@@ -153,6 +154,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emissionStrength: 3
   labelRoot: {fileID: 2079280834302476198}
+--- !u!114 &7199680214876054195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237863133182736867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ecbfeead81e7f42ac312721a244d87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: Earth
+  description: "Earth is the only planet known to support life and the only world
+    with large amounts of liquid water on its surface. Its atmosphere provides oxygen
+    to breathe, protection from meteoroids, and just the right temperature range
+    for complex ecosystems. Earth\u2019s magnetic field acts as an invisible shield
+    against solar radiation.\nFun Fact: Earth is the densest planet in the solar
+    system, and it\u2019s the only one with active plate tectonics - a key reason
+    life formed here."
+  icon: {fileID: 0}
 --- !u!1 &1333355739679988843
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +186,7 @@ GameObject:
   - component: {fileID: 8981403667790574524}
   - component: {fileID: 8766343507025833059}
   - component: {fileID: 7345912219993027311}
+  - component: {fileID: 1674204202748774295}
   m_Layer: 3
   m_Name: Earth
   m_TagString: Untagged
@@ -291,6 +314,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1674204202748774295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333355739679988843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf21a8309a290734a8be2d3a5cb2ec65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2079280834302476198
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,6 +337,8 @@ GameObject:
   - component: {fileID: 7371520513613258454}
   - component: {fileID: 2361021570205769322}
   - component: {fileID: 6835639024443551386}
+  - component: {fileID: 4875458204500572114}
+  - component: {fileID: 7759859821722488173}
   m_Layer: 3
   m_Name: LabelRoot
   m_TagString: Untagged
@@ -326,7 +363,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000002861023, y: 2.92}
+  m_AnchoredPosition: {x: -0.000002861023, y: 5.63}
   m_SizeDelta: {x: 30, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2361021570205769322
@@ -364,6 +401,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c3e011c1c8198468ea3c31d3e8b354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4875458204500572114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079280834302476198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4fe070b48859654da346d5ea8a911df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7759859821722488173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079280834302476198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &6359405694939686309
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,6 +441,7 @@ GameObject:
   - component: {fileID: 259357932309673981}
   - component: {fileID: 90493408227882502}
   - component: {fileID: 3700615211446755556}
+  - component: {fileID: 7452045615858807592}
   m_Layer: 3
   m_Name: Image
   m_TagString: Untagged
@@ -440,3 +507,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7452045615858807592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6359405694939686309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf21a8309a290734a8be2d3a5cb2ec65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5113170321149259438}
   - component: {fileID: 3989449646041517408}
   - component: {fileID: 9097229011922424287}
+  - component: {fileID: -7514507727662346539}
   m_Layer: 3
   m_Name: 1. MercuryPrefab
   m_TagString: Untagged
@@ -153,6 +154,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emissionStrength: 3
   labelRoot: {fileID: 5854935233762909116}
+--- !u!114 &-7514507727662346539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237863133182736867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ecbfeead81e7f42ac312721a244d87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: Mercury
+  description: "Mercury is the smallest planet and orbits closest to the Sun, completing
+    a full orbit in just 88 days. Its surface is covered in craters, similar to our
+    Moon, because it has almost no atmosphere to protect it. Despite being closest
+    to the Sun, it\u2019s not the hottest planet - that title goes to Venus. Mercury
+    has huge temperature swings: scorching hot during the day and freezing at night.\nFun
+    Fact: A single day (sunrise to sunrise) on Mercury lasts 176 Earth days, meaning
+    one day is two Mercury years long!"
+  icon: {fileID: 0}
 --- !u!1 &4878810382623194123
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +186,7 @@ GameObject:
   - component: {fileID: 4485926895436234795}
   - component: {fileID: 1848189770273865622}
   - component: {fileID: 8785419220009524085}
+  - component: {fileID: 5293864911609378279}
   m_Layer: 3
   m_Name: Mercury
   m_TagString: Untagged
@@ -289,6 +312,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5293864911609378279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4878810382623194123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf21a8309a290734a8be2d3a5cb2ec65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5854935233762909116
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,6 +335,8 @@ GameObject:
   - component: {fileID: 6442461703089535009}
   - component: {fileID: 7124126304297316174}
   - component: {fileID: 7823636427646305335}
+  - component: {fileID: 3491210418738843457}
+  - component: {fileID: 268469391257785035}
   m_Layer: 3
   m_Name: LabelRoot
   m_TagString: Untagged
@@ -324,7 +361,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 7.7}
+  m_AnchoredPosition: {x: 0, y: 12.58}
   m_SizeDelta: {x: 30, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7124126304297316174
@@ -362,6 +399,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c3e011c1c8198468ea3c31d3e8b354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3491210418738843457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5854935233762909116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4fe070b48859654da346d5ea8a911df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &268469391257785035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5854935233762909116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &8185831489904121557
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,6 +439,7 @@ GameObject:
   - component: {fileID: 866545248831839256}
   - component: {fileID: 3754115402946618361}
   - component: {fileID: 2808014647563310826}
+  - component: {fileID: 7436468486904562847}
   m_Layer: 3
   m_Name: Image
   m_TagString: Untagged
@@ -438,3 +505,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7436468486904562847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8185831489904121557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf21a8309a290734a8be2d3a5cb2ec65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

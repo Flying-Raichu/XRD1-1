@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6710657173462554371}
   - component: {fileID: 152202924568490366}
   - component: {fileID: 3567826094194687569}
+  - component: {fileID: 111129375981015901}
   m_Layer: 3
   m_Name: Image
   m_TagString: Untagged
@@ -76,6 +77,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &111129375981015901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207512914320545459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf21a8309a290734a8be2d3a5cb2ec65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1064060044990481720
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,6 +100,8 @@ GameObject:
   - component: {fileID: 7254530705684818316}
   - component: {fileID: 3462948573679091613}
   - component: {fileID: 6313023303984481225}
+  - component: {fileID: 9108780679555381293}
+  - component: {fileID: 3648617020192597710}
   m_Layer: 3
   m_Name: LabelRoot
   m_TagString: Untagged
@@ -111,7 +126,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000014305115, y: 1.418}
+  m_AnchoredPosition: {x: 0.0000014305115, y: 1.75}
   m_SizeDelta: {x: 30, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3462948573679091613
@@ -149,6 +164,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c3e011c1c8198468ea3c31d3e8b354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9108780679555381293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064060044990481720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &3648617020192597710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064060044990481720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4fe070b48859654da346d5ea8a911df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1237863133182736867
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +208,7 @@ GameObject:
   - component: {fileID: 5113170321149259438}
   - component: {fileID: 7401157991624507117}
   - component: {fileID: -3811332678398674635}
+  - component: {fileID: 1020049157978850992}
   m_Layer: 3
   m_Name: 5. JupiterPrefab
   m_TagString: Untagged
@@ -302,6 +347,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emissionStrength: 1.5
   labelRoot: {fileID: 1064060044990481720}
+--- !u!114 &1020049157978850992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237863133182736867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ecbfeead81e7f42ac312721a244d87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: Jupiter
+  description: "Jupiter is the largest planet, a colossal gas giant made mostly of
+    hydrogen and helium. With no solid surface, its swirling clouds create powerful
+    storms and colorful bands across the atmosphere. It has at least 95 moons - more
+    than any other planet currently known. Jupiter\u2019s magnetic field is incredibly
+    strong, far stronger than Earth\u2019s.\nFun Fact: The Great Red Spot is a massive
+    storm larger than Earth and has been raging for at least 350 years!"
+  icon: {fileID: 0}
 --- !u!1 &1401351415372345185
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +378,7 @@ GameObject:
   - component: {fileID: 3196506023534920678}
   - component: {fileID: 6956576714040703934}
   - component: {fileID: 4259849194388590579}
+  - component: {fileID: 1876799910997369346}
   m_Layer: 3
   m_Name: Jupiter
   m_TagString: Untagged
@@ -438,3 +504,15 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1876799910997369346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401351415372345185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf21a8309a290734a8be2d3a5cb2ec65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
