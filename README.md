@@ -1,3 +1,5 @@
+![PIA06890-56a8ccd83df78cf772a0c5df](https://github.com/user-attachments/assets/74eed05a-b434-43b5-bf93-775678d0921c)
+
 # Solar system AR project
 This is the repository for the first group project in XRD1 - A mini, educational solar system animation.
 
