@@ -4,20 +4,41 @@ public class SolarSystemTime : MonoBehaviour
 {
     public static SolarSystemTime Instance { get; private set; }
 
-    [Header("Simulation Speed")]
-    [Tooltip("Base speed multiplier for all orbits and spins.")]
-    [Range(0f, 5f)]
-    public float baseSpeed = 1f;
+    public enum SimState
+    {
+        Paused,
+        VerySlowSpeed,
+        SlowSpeed,
+        Normal
+    }
 
-    [Header("State (read-only at runtime)")]
-    public bool paused = false;
+    [Header("Speeds")]
+    [Tooltip("Speed when in VerySlowSpeed mode.")]
+    public float verySlowSpeed = 0.2f;
+
+    [Tooltip("Speed when in SlowSpeed mode.")]
+    public float slowSpeed = 0.5f;
+
+    [Tooltip("Speed when in Normal mode.")]
+    public float normalSpeed = 1f;
+
+    [Header("Current State (read-only at runtime)")]
+    public SimState state = SimState.Normal;
 
     public static float TimeScale
     {
         get
         {
             if (Instance == null) return 1f;
-            return Instance.paused ? 0f : Instance.baseSpeed;
+
+            switch (Instance.state)
+            {
+                case SimState.Paused: return 0f;
+                case SimState.VerySlowSpeed: return Instance.verySlowSpeed;
+                case SimState.SlowSpeed: return Instance.slowSpeed;
+                case SimState.Normal:
+                default: return Instance.normalSpeed;
+            }
         }
     }
 
@@ -33,19 +54,27 @@ public class SolarSystemTime : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void TogglePause()
+    public void CycleState()
     {
-        paused = !paused;
-        Debug.Log($"[SolarSystemTime] Paused = {paused}");
-    }
+        switch (state)
+        {
+            case SimState.Paused:
+                state = SimState.VerySlowSpeed;
+                break;
+            case SimState.VerySlowSpeed:
+                state = SimState.SlowSpeed;
+                break;
+            case SimState.SlowSpeed:
+                state = SimState.Normal;
+                break;
+            case SimState.Normal:
+                state = SimState.Paused;
+                break;
+            default:
+                state = SimState.Normal;
+                break;
+        }
 
-    public void SetPaused(bool value)
-    {
-        paused = value;
-    }
-
-    public void SetSpeed(float speed)
-    {
-        baseSpeed = Mathf.Max(0f, speed);
+        Debug.Log("[SolarSystemTime] New state: " + state + " (TimeScale=" + TimeScale + ")");
     }
 }

@@ -1,10 +1,9 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 
 public class PauseButtonUI : MonoBehaviour
 {
-    [Tooltip("Optional label to update with Play/Pause text.")]
+    [Tooltip("Optional label to update with speed text.")]
     public TMP_Text label;
 
     void Start()
@@ -17,9 +16,13 @@ public class PauseButtonUI : MonoBehaviour
 
     public void OnPauseButtonClicked()
     {
-        if (SolarSystemTime.Instance == null) return;
+        if (SolarSystemTime.Instance == null)
+        {
+            Debug.LogWarning("[PauseButtonUI] SolarSystemTime.Instance is null");
+            return;
+        }
 
-        SolarSystemTime.Instance.TogglePause();
+        SolarSystemTime.Instance.CycleState();
         UpdateLabel();
     }
 
@@ -27,6 +30,21 @@ public class PauseButtonUI : MonoBehaviour
     {
         if (label == null || SolarSystemTime.Instance == null) return;
 
-        label.text = SolarSystemTime.Instance.paused ? "Play" : "Pause";
+        switch (SolarSystemTime.Instance.state)
+        {
+            case SolarSystemTime.SimState.Paused:
+                label.text = "Paused";
+                break;
+            case SolarSystemTime.SimState.VerySlowSpeed:
+                label.text = "Speed: 0.2x";
+                break;
+            case SolarSystemTime.SimState.SlowSpeed:
+                label.text = "Speed: 0.5x";
+                break;
+            case SolarSystemTime.SimState.Normal:
+            default:
+                label.text = "Speed: 1x";
+                break;
+        }
     }
 }
