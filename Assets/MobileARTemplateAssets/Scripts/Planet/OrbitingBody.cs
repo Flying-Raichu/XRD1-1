@@ -2,20 +2,25 @@ using UnityEngine;
 
 public class OrbitingBody : MonoBehaviour
 {
-    Transform orbitCenter;
-    float degreesPerSecond;
-    Vector3 orbitAxis = Vector3.up;
+    [SerializeField] private Transform orbitCenter;
+    [SerializeField] private float degreesPerSecond = 30f;
+    [SerializeField] private Vector3 orbitAxis = Vector3.up;
 
-    public void Init(Transform center, float speedDeg, Vector3 axis)
+    public void Init(Transform center, float speed, Vector3 axis)
     {
         orbitCenter = center;
-        degreesPerSecond = speedDeg;
+        degreesPerSecond = speed;
         orbitAxis = axis.normalized;
     }
 
     void Update()
     {
         if (!orbitCenter) return;
-        transform.RotateAround(orbitCenter.position, orbitAxis, degreesPerSecond * Time.deltaTime);
+
+        float scale = SolarSystemTime.TimeScale;
+        if (Mathf.Approximately(scale, 0f)) return;
+
+        float angle = degreesPerSecond * scale * Time.deltaTime;
+        transform.RotateAround(orbitCenter.position, orbitAxis, angle);
     }
 }
