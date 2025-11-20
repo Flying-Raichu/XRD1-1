@@ -4,7 +4,7 @@ using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
-using UnityEngine.EventSystems;   // NEW
+using UnityEngine.EventSystems;
 
 public class TapToPlaceSingle : MonoBehaviour
 {

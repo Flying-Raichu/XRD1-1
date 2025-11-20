@@ -2,29 +2,33 @@ using UnityEngine;
 
 public class SpinOnAxis : MonoBehaviour
 {
-    [Header("Target to spin")]
-    [Tooltip("Leave empty to spin this transform. Assign a child if you want tilt without affecting orbit.")]
-    [SerializeField] private Transform target;
+    [Header("Target to spin (optional)")]
+    [Tooltip("Leave empty to spin this transform.")]
+    public Transform target;
 
-    [Header("Rotation")]
-    [Tooltip("Degrees the planet rotates around its axis per second (positive = prograde, negative = retrograde).")]
-    [SerializeField] private float degreesPerSecond = 10f;
-
-    [Tooltip("Axial tilt in degrees (e.g. Earth ~23.5).")]
-    [SerializeField] private float axialTiltDegrees = 0f;
+    [Header("Spin Settings")]
+    public float degreesPerSecond = 30f;
+    public float axialTiltDegrees = 0f;
 
     void Awake()
     {
         if (target == null)
             target = transform;
 
-        target.localRotation = Quaternion.Euler(axialTiltDegrees, 0f, 0f) * target.localRotation;
+        if (!Mathf.Approximately(axialTiltDegrees, 0f))
+        {
+            target.localRotation = Quaternion.Euler(axialTiltDegrees, 0f, 0f) * target.localRotation;
+        }
     }
 
     void Update()
     {
-        if (Mathf.Approximately(degreesPerSecond, 0f)) return;
+        if (target == null) return;
 
-        target.Rotate(Vector3.up, degreesPerSecond * Time.deltaTime, Space.Self);
+        float scale = SolarSystemTime.TimeScale;
+        if (Mathf.Approximately(scale, 0f)) return;
+
+        float angle = degreesPerSecond * scale * Time.deltaTime;
+        target.Rotate(Vector3.up, angle, Space.Self);
     }
 }
