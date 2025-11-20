@@ -4,7 +4,8 @@ using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
-using UnityEngine.EventSystems;   // NEW
+using UnityEngine.EventSystems;
+using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 
 public class TapToPlaceSingle : MonoBehaviour
 {
@@ -110,6 +111,13 @@ public class TapToPlaceSingle : MonoBehaviour
 
             SpawnPlanetsAndRings(pose, sunPos);
 
+            var scaler = FindFirstObjectByType<PinchToScale>();
+            if (scaler != null)
+            {
+                var root = parentAnchor != null ? parentAnchor : placedObject.transform;
+                scaler.SetTarget(root);
+            }
+
             if (planeMgr != null)
             {
                 planeMgr.requestedDetectionMode = PlaneDetectionMode.None;
@@ -154,6 +162,8 @@ public class TapToPlaceSingle : MonoBehaviour
         spawnedPlanets.Clear();
         spawnedRings.Clear();
 
+        Transform root = parentAnchor != null ? parentAnchor : placedObject.transform;
+
         foreach (var spec in planets)
         {
             if (spec.prefab == null)
@@ -162,10 +172,7 @@ public class TapToPlaceSingle : MonoBehaviour
             if (orbitMaterial != null && spec.orbitRadius > 0f)
             {
                 var ringObj = new GameObject($"{spec.name} Orbit");
-
-                ringObj.transform.SetParent(
-                    parentAnchor != null ? parentAnchor : placedObject.transform.parent,
-                    false);
+                ringObj.transform.SetParent(root, false);
 
                 var ring = ringObj.AddComponent<OrbitRing>();
                 ring.Build(
@@ -192,7 +199,7 @@ public class TapToPlaceSingle : MonoBehaviour
             Quaternion planetRot =
                 Quaternion.LookRotation((sunPos - planetPos).normalized, planePose.up);
 
-            var planetObj = Instantiate(spec.prefab, planetPos, planetRot, parentAnchor);
+            var planetObj = Instantiate(spec.prefab, planetPos, planetRot, root);
 
             if (planetObj.TryGetComponent<OrbitingBody>(out var orbit))
             {
@@ -208,9 +215,13 @@ public class TapToPlaceSingle : MonoBehaviour
         }
     }
 
+
     bool TryGetTap(out Vector2 pos)
     {
         pos = default;
+
+        if (Touch.activeTouches.Count != 1)
+            return false;
 
         var ts = Touchscreen.current;
         if (ts == null) return false;
@@ -226,6 +237,7 @@ public class TapToPlaceSingle : MonoBehaviour
 
         return false;
     }
+
 
     bool IsPointerOverUI(Vector2 screenPos)
     {
