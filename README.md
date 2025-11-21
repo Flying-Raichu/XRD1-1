@@ -19,7 +19,12 @@ The general idea behind the project as an educational piece is to provide a robu
 
 # Links to blog posts
 [Introduction](<Blog posts/01 Introduction.md>)
+
 [Milestone 1](<Blog posts/Milestone 1.md>)
+
 [Milestone 2](<Blog posts/Milestone 2.md>)
+
 [Milestone 3](<Blog posts/Milestone 3.md>)
+
 [Milestone 4](<Blog posts/Milestone 4.md>)
+
