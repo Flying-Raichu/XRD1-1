@@ -50,11 +50,11 @@ It provides a spatial, tangible view of the solar system, making planetary scale
 Instead of a fixed coordinate system, AR scenes respond to the physical world. Everything depends on detected surfaces and device tracking.
 
 ## References
-Unity AR Foundation documentation  
+[1] Unity AR Foundation documentation  
 https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@3.0/manual/index.html
 
-Unity tutorial – Placing an object on a plane  
+[2] Unity tutorial – Placing an object on a plane  
 https://learn.unity.com/tutorial/placing-an-object-on-a-plane-in-ar
 
-AR Foundation beginner guide  
+[3] AR Foundation beginner guide  
 https://technerdus.com/unity-ar-foundation-tutorial-for-beginners/
