@@ -18,3 +18,8 @@ The general idea behind the project as an educational piece is to provide a robu
 - The Sun itself isn't modelled as a planet. Therefore, it is stationary, does not rotate around its axis and does not have a description
 
 # Links to blog posts
+[Introduction](<Blog posts/01 Introduction.md>)
+[Milestone 1](<Blog posts/Milestone 1.md>)
+[Milestone 2](<Blog posts/Milestone 2.md>)
+[Milestone 3](<Blog posts/Milestone 3.md>)
+[Milestone 4](<Blog posts/Milestone 4.md>)
