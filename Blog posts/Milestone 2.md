@@ -168,3 +168,6 @@ https://docs.unity3d.com/ScriptReference/Transform.RotateAround.html
 
 [4] Unity Technologies. “LineRenderer Component.” *Unity Manual*.  
 https://docs.unity3d.com/Manual/class-LineRenderer.html  
+
+[5] Boards to bits games. "Making a Custom Planet Ring in Unity".
+https://www.youtube.com/watch?v=Rze4GEFrYYs&t=1s
