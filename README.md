@@ -28,3 +28,7 @@ The general idea behind the project as an educational piece is to provide a robu
 
 [Milestone 4](<Blog posts/Milestone 4.md>)
 
+[Video showcase](<Blog posts/Video showcase/Solar System app recording.mp4>)
+
+Link to Youtube video: https://youtube.com/shorts/5Lq7TW6wbOY?feature=share
+
