@@ -30,5 +30,53 @@ The general idea behind the project as an educational piece is to provide a robu
 
 [Video showcase](<Blog posts/Video showcase/Solar System app recording.mp4>)
 
-Link to Youtube video: https://youtube.com/shorts/5Lq7TW6wbOY?feature=share
+Link to Youtube video: (<https://youtube.com/shorts/5Lq7TW6wbOY?feature=share>)
 
+## References
+[1] Unity AR Foundation documentation  
+https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@3.0/manual/index.html
+
+[2] Unity tutorial – Placing an object on a plane  
+https://learn.unity.com/tutorial/placing-an-object-on-a-plane-in-ar
+
+[3] AR Foundation beginner guide  
+https://technerdus.com/unity-ar-foundation-tutorial-for-beginners/
+
+[4] Unity Technologies. “AR Foundation Manual.” *Unity Documentation*.  
+https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@5.0/manual/index.html  
+
+[5] Unity Technologies. “ARRaycastManager.” *Unity Scripting API*.  
+https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@5.0/api/UnityEngine.XR.ARFoundation.ARRaycastManager.html  
+
+[6] Unity Technologies. “Transform.RotateAround.” *Unity Scripting API*.  
+https://docs.unity3d.com/ScriptReference/Transform.RotateAround.html  
+
+[7] Unity Technologies. “LineRenderer Component.” *Unity Manual*.  
+https://docs.unity3d.com/Manual/class-LineRenderer.html  
+
+[8] Boards to bits games. "Making a Custom Planet Ring in Unity".
+https://www.youtube.com/watch?v=Rze4GEFrYYs&t=1s
+
+[9] Unity Technologies. “World-Space UI.” *Unity Manual*.  
+https://docs.unity3d.com/Manual/HOWTO-UIWorldSpace.html  
+
+[10] Unity Technologies. “Camera.WorldToScreenPoint.” *Unity Scripting API*.  
+https://docs.unity3d.com/ScriptReference/Camera.WorldToScreenPoint.html  
+
+[11] Unity Technologies. “Material Emission Properties.” *Unity Manual*.  
+https://docs.unity3d.com/Manual/StandardShaderMaterialParameterEmission.html  
+
+[12] Unity Technologies. “Event System & Input in Unity UI.” *Unity Manual*.  
+https://docs.unity3d.com/Manual/EventSystem.html  
+
+[13] Unity Technologies. “TextMeshPro Essentials.” *Unity Documentation*.  
+https://docs.unity3d.com/Packages/com.unity.textmeshpro@latest  
+
+[14] Unity Technologies. “EventSystem and UI Input.” *Unity Manual*.  
+https://docs.unity3d.com/Manual/EventSystem.html  
+
+[15] Unity Technologies. “IPointerClickHandler Interface.” *Unity Scripting API*.  
+https://docs.unity3d.com/ScriptReference/EventSystems.IPointerClickHandler.html  
+
+[16] Unity Technologies. “Canvas and UI Rendering.” *Unity Manual*.  
+https://docs.unity3d.com/Manual/class-Canvas.html  
