@@ -1,4 +1,4 @@
-#Catarina’s Personal Reflection 
+# Catarina’s Personal Reflection 
 
 This document will approach my reflection regarding my role in the team, my contributions in the work done, technical issues, decisions made and what should be improved. 
 
@@ -6,9 +6,9 @@ Regarding the creative process of both projects I took a very active role, with 
 
  
 
-##Regarding my technical contributions: 
+## Regarding my technical contributions: 
 
-###For the AR Project: 
+### For the AR Project: 
 
 -Built on the sun mechanics in order for it to maintain a constant position and made a first material for the sun. 
 
@@ -18,7 +18,7 @@ Regarding the creative process of both projects I took a very active role, with 
 
  
 
-###For the VR project : 
+### For the VR project : 
 
  
 For the VR project, I was responsible for the core design, implementation, and technical execution of the experience. 
@@ -39,7 +39,7 @@ For the VR project, I was responsible for the core design, implementation, and t
 
  
 
-##Technical Issues 
+## Technical Issues 
 
 The biggest technical issue was the fact that several features were worked on at the same time. This is not a good practice and this is not how a project should be built, but it was a decision made being aware of such. This decision was conducted due to poor workload management of the team. Initially the team wanted all team members to work on the project equally, but it ended up not being possible as some AR changes were taking a lot of time to fully function. Therefore, at a very late stage, the team decided the best decision was for me to begin to build the VR project. Due to the very limited amount of time available , I took the decision to work on several features in parallel. This way, each branch was viewed as a testing zone were all features could be tested separately and then combined together by copying the self produced code into a new branch and merged. While this approach improved the productivity in short-term, it increased the risk of  issues occurring, specially regarding scene management and version control.  
 
@@ -47,7 +47,7 @@ While merging the features, there were issues regarding the scene files, which s
 
  
 
-##Conclusions and improvements for the future 
+## Conclusions and improvements for the future 
 
 The main takeaway would be better time and workload management – had the team decided earlier that the workload would have been the way it turned out to, the VR game would have been better developed, and with the intended detail it was intended to. 
 
